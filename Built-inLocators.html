@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playwright Built-in Locators Practice</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        section {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+
+        input, button {
+            margin: 5px;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Playwright Built-in Locators Practice Page</h1>
+
+    <!-- getByRole -->
+    <section>
+        <h2>getByRole()</h2>
+
+        <button>Login</button>
+        <button>Register</button>
+
+        <a href="#">Contact Us</a>
+
+        <input type="checkbox" id="subscribe">
+        <label for="subscribe">Subscribe</label>
+    </section>
+
+    <!-- getByText -->
+    <section>
+        <h2>getByText()</h2>
+
+        <p>Welcome to Playwright Training</p>
+        <p>Automation Testing Rocks</p>
+
+        <button>Submit Order</button>
+    </section>
+
+    <!-- getByLabel -->
+    <section>
+        <h2>getByLabel()</h2>
+
+        <label for="username">Username</label>
+        <input id="username" type="text">
+
+        <br>
+
+        <label for="password">Password</label>
+        <input id="password" type="password">
+    </section>
+
+    <!-- getByPlaceholder -->
+    <section>
+        <h2>getByPlaceholder()</h2>
+
+        <input
+            type="email"
+            placeholder="Enter your email">
+
+        <input
+            type="text"
+            placeholder="Enter your city">
+    </section>
+
+    <!-- getByAltText -->
+    <section>
+        <h2>getByAltText()</h2>
+
+        <img
+            src="https://via.placeholder.com/150"
+            alt="Company Logo">
+
+        <img
+            src="https://via.placeholder.com/100"
+            alt="User Profile">
+    </section>
+
+    <!-- getByTitle -->
+    <section>
+        <h2>getByTitle()</h2>
+
+        <button title="Close Window">X</button>
+
+        <button title="Open Settings">
+            Settings
+        </button>
+    </section>
+
+    <!-- getByTestId -->
+    <section>
+        <h2>getByTestId()</h2>
+
+        <button data-testid="login-btn">
+            Login TestId
+        </button>
+
+        <input
+            data-testid="search-box"
+            placeholder="Search Products">
+
+        <button data-testid="checkout-btn">
+            Checkout
+        </button>
+    </section>
+
+    <!-- Combo Examples -->
+    <section>
+        <h2>Real Application Section</h2>
+
+        <label for="email">Email Address</label>
+        <input
+            id="email"
+            type="email"
+            placeholder="Enter Email">
+
+        <br><br>
+
+        <label for="mobile">Mobile Number</label>
+        <input
+            id="mobile"
+            type="text"
+            placeholder="Enter Mobile Number">
+
+        <br><br>
+
+        <button
+            data-testid="save-btn"
+            title="Save Information">
+			Save
+		</button>
+
+        <button
+            data-testid="cancel-btn"
+            title="Cancel Operation">
+            Cancel
+        </button>
+
+        <p>Registration Successful</p>
+    </section>
+
+</body>
+</html>

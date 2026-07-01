@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Playwright Complete Practice Page</title>
+
+<style>
+body{
+    font-family:Arial;
+    margin:20px;
+    background:#f4f4f4;
+}
+
+section{
+    background:white;
+    padding:15px;
+    margin-bottom:20px;
+    border-radius:10px;
+}
+
+h2{
+    color:#0f172a;
+}
+
+button{
+    padding:8px 15px;
+    margin:5px;
+    cursor:pointer;
+}
+
+#hoverBox{
+    width:200px;
+    height:100px;
+    background:lightblue;
+    text-align:center;
+    line-height:100px;
+}
+
+#dragItem{
+    width:100px;
+    height:50px;
+    background:orange;
+    text-align:center;
+    line-height:50px;
+    cursor:move;
+}
+
+#dropZone{
+    width:200px;
+    height:100px;
+    border:2px dashed black;
+    margin-top:10px;
+    text-align:center;
+    line-height:100px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Playwright Automation Practice</h1>
+
+<!-- Textbox -->
+<section>
+<h2>Textbox</h2>
+
+<input type="text" id="username" placeholder="Username">
+
+<input type="password" id="password" placeholder="Password">
+
+<textarea id="comments"></textarea>
+</section>
+
+<!-- Checkbox -->
+<section>
+<h2>Checkboxes</h2>
+
+<label><input type="checkbox" id="java"> Java</label>
+
+<label><input type="checkbox" id="selenium"> Selenium</label>
+
+<label><input type="checkbox" id="playwright"> Playwright</label>
+</section>
+
+<!-- Radio -->
+<section>
+<h2>Radio Buttons</h2>
+
+<label><input type="radio" name="gender" value="male"> Male</label>
+
+<label><input type="radio" name="gender" value="female"> Female</label>
+</section>
+
+<!-- Dropdown -->
+<section>
+<h2>Dropdown</h2>
+
+<select id="country">
+<option>India</option>
+<option>USA</option>
+<option>UK</option>
+<option>Australia</option>
+</select>
+
+<br><br>
+
+<select id="skills" multiple>
+<option>Java</option>
+<option>Playwright</option>
+<option>Selenium</option>
+<option>API</option>
+</select>
+</section>
+
+<!-- Buttons -->
+<section>
+<h2>Buttons</h2>
+
+<button id="saveBtn">Save</button>
+
+<button id="cancelBtn">Cancel</button>
+
+<button id="doubleBtn">
+Double Click Me
+</button>
+
+<button id="rightBtn">
+Right Click Me
+</button>
+</section>
+
+<!-- Alerts -->
+<section>
+<h2>Alerts</h2>
+
+<button onclick="alert('Simple Alert')">
+Alert
+</button>
+
+<button onclick="confirm('Confirm Box')">
+Confirm
+</button>
+
+<button onclick="prompt('Enter Name')">
+Prompt
+</button>
+</section>
+
+<!-- Hover -->
+<section>
+<h2>Hover</h2>
+
+<div id="hoverBox">
+Hover Here
+</div>
+
+<p id="hoverText"></p>
+</section>
+
+<!-- Drag Drop -->
+<section>
+<h2>Drag & Drop</h2>
+
+<div draggable="true"
+id="dragItem">
+Drag Me
+</div>
+
+<div id="dropZone">
+Drop Here
+</div>
+</section>
+
+<!-- Upload -->
+<section>
+<h2>File Upload</h2>
+
+<input type="file" id="uploadFile">
+</section>
+
+<!-- Dynamic Content -->
+<section>
+<h2>Dynamic Content</h2>
+
+<button id="loadData">
+Load Data
+</button>
+
+<p id="dynamicText"></p>
+</section>
+
+<!-- Table -->
+<section>
+<h2>Web Table</h2>
+
+<table border="1">
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Role</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>101</td>
+<td>Sunil</td>
+<td>Trainer</td>
+</tr>
+
+<tr>
+<td>102</td>
+<td>John</td>
+<td>Tester</td>
+</tr>
+
+<tr>
+<td>103</td>
+<td>David</td>
+<td>Developer</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<!-- Keyboard -->
+<section>
+<h2>Keyboard Action</h2>
+
+<input id="keyboardInput"
+placeholder="Type something">
+</section>
+
+<!-- New Tab -->
+<section>
+<h2>New Tab</h2>
+
+<a href="https://bixitacademy.com/SeleniumPracticePage.html"
+target="_blank"
+id="newTabLink">
+Open New Tab
+</a>
+</section>
+
+<!-- Iframe -->
+<section>
+<h2>Iframe</h2>
+
+<iframe
+id="frame1"
+srcdoc="
+<html>
+<body>
+<button id='frameButton'>
+Frame Button
+</button>
+</body>
+</html>"
+width="300"
+height="150">
+</iframe>
+
+</section>
+
+<script>
+
+document
+.getElementById("hoverBox")
+.addEventListener("mouseover",()=>{
+
+document.getElementById("hoverText")
+.innerText="Hover Successful";
+
+});
+
+document
+.getElementById("loadData")
+.addEventListener("click",()=>{
+
+setTimeout(()=>{
+
+document
+.getElementById("dynamicText")
+.innerText="Data Loaded Successfully";
+
+},2000);
+
+});
+
+const dragItem =
+document.getElementById("dragItem");
+
+const dropZone =
+document.getElementById("dropZone");
+
+dragItem.addEventListener("dragstart",(e)=>{
+e.dataTransfer.setData("text","drag");
+});
+
+dropZone.addEventListener("dragover",(e)=>{
+e.preventDefault();
+});
+
+dropZone.addEventListener("drop",(e)=>{
+
+e.preventDefault();
+
+dropZone.innerText="Dropped Successfully";
+
+});
+
+document
+.getElementById("doubleBtn")
+.addEventListener("dblclick",()=>{
+
+alert("Double Click Success");
+
+});
+
+document
+.getElementById("rightBtn")
+.addEventListener("contextmenu",(e)=>{
+
+e.preventDefault();
+
+alert("Right Click Success");
+
+});
+
+</script>
+
+</body>
+</html>

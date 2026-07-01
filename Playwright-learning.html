@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Playwright Practice UI</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #0f172a;
+    color: white;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+    padding: 15px;
+    background: #1e293b;
+    border-radius: 10px;
+}
+
+button {
+    padding: 8px 12px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+input, select {
+    padding: 8px;
+    margin: 5px;
+}
+
+.hidden {
+    display: none;
+    color: yellow;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+td, th {
+    border: 1px solid white;
+    padding: 8px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Playwright Automation Practice Page</h1>
+
+<!-- LOGIN SECTION -->
+<section>
+<h2>Login Form</h2>
+
+<input id="username" placeholder="Username" />
+<input id="password" type="password" placeholder="Password" />
+
+<button id="loginBtn">Login</button>
+
+<p id="loginMsg"></p>
+</section>
+
+
+<!-- BUTTON ACTIONS -->
+<section>
+<h2>Buttons Section</h2>
+
+<button id="clickBtn">Click Me</button>
+<button id="dblClickBtn">Double Click Me</button>
+<button id="hoverBtn" onmouseover="this.innerText='Hovered!'">Hover Me</button>
+
+<p id="btnResult"></p>
+</section>
+
+
+<!-- CHECKBOX + RADIO -->
+<section>
+<h2>Form Controls</h2>
+
+<label><input type="checkbox" id="agree"> I Agree</label><br><br>
+
+<label><input type="radio" name="gende" value="male"> Male</label>
+<label><input type="radio" name="gender" value="female"> Female</label>
+
+<br><br>
+
+<select id="country">
+    <option value="">Select Country</option>
+    <option value="IN">India</option>
+    <option value="US">USA</option>
+</select>
+</section>
+
+
+<!-- DYNAMIC ELEMENT -->
+<section>
+<h2>Dynamic Element</h2>
+
+<button onclick="showText()">Show Message</button>
+
+<p id="dynamicText" class="hidden">Hello Playwright Learner!</p>
+</section>
+
+
+<!-- TABLE SECTION -->
+<section>
+<h2>User Table (XPath / Filter Practice)</h2>
+
+<table>
+<tr>
+    <th>Name</th>
+    <th>Role</th>
+    <th>Action</th>
+</tr>
+
+<tr>
+    <td>Sunil</td>
+    <td>Tester</td>
+    <td><button class="deleteBtn">Delete</button></td>
+</tr>
+
+<tr>
+    <td>Hassain</td>
+    <td>Developer</td>
+    <td><button class="deleteBtn">Delete</button></td>
+</tr>
+
+<tr>
+    <td>John</td>
+    <td>Manager</td>
+    <td><button class="deleteBtn">Delete</button></td>
+</tr>
+</table>
+</section>
+
+
+<!-- IFRAME -->
+<section>
+<h2>iFrame Section</h2>
+
+<iframe id="myFrame" srcdoc="
+    <html>
+    <body>
+        <button id='frameBtn'>Frame Button</button>
+    </body>
+    </html>
+" width="300" height="100"></iframe>
+
+</section>
+
+
+<!-- OUTPUT -->
+<section>
+<h2>Output Area</h2>
+<p id="output"></p>
+</section>
+
+
+<script>
+// LOGIN
+document.getElementById("loginBtn").onclick = function() {
+    let user = document.getElementById("username").value;
+    document.getElementById("loginMsg").innerText = "Welcome " + user;
+};
+
+// CLICK BUTTON
+document.getElementById("clickBtn").onclick = function() {
+    document.getElementById("btnResult").innerText = "Clicked!";
+};
+
+// DOUBLE CLICK
+document.getElementById("dblClickBtn").ondblclick = function() {
+    document.getElementById("btnResult").innerText = "Double Clicked!";
+};
+
+// DYNAMIC TEXT
+function showText() {
+    document.getElementById("dynamicText").style.display = "block";
+}
+
+// DELETE BUTTON ACTION
+document.querySelectorAll(".deleteBtn").forEach(btn => {
+    btn.onclick = function() {
+        this.parentElement.parentElement.remove();
+    };
+});
+</script>
+
+</body>
+</html>

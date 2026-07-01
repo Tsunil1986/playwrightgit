@@ -1,0 +1,18 @@
+{
+  "user": {
+    "username": "standard_user",
+    "password": "secret_sauce"
+  },
+  "customer": {
+    "firstName": "Hassain",
+    "lastName": "Basha",
+    "postalCode": "600117"
+  },
+  "product": {
+    "name": "Sauce Labs Backpack"
+  },
+
+  "url" :{
+    "prod" : "https://www.saucedemo.com/"
+  }
+}
