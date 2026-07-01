@@ -3,6 +3,6 @@ test ("Locators", async ({page})=>{
 
     await page.goto("https://bixitacademy.com/SeleniumPracticePage.html")
     
-    console.log("Opened successfully")
+    
     
 })
